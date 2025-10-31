@@ -60,106 +60,6 @@ public class MainFrame extends javax.swing.JFrame {
         updateUiStates(false, false);
     }
 
-//    private void initComponents() {
-//        // Paneles laterales (SQL / Oracle)
-//        JPanel panelCenter = new JPanel(new GridLayout(1, 2, 10, 10));
-//
-//        JPanel panelSql = new JPanel(null);
-//        panelSql.setBorder(BorderFactory.createTitledBorder("SQL Server"));
-//
-//        JPanel panelOra = new JPanel(null);
-//        panelOra.setBorder(BorderFactory.createTitledBorder("Oracle"));
-//
-//        // ----- SQL -----
-//        lblStatusSql = new JLabel("No conectado");
-//        lblStatusSql.setBounds(10, 20, 200, 22);
-//        panelSql.add(lblStatusSql);
-//
-//        btnConnectSql = new JButton("Conectar SQL");
-//        btnConnectSql.setBounds(10, 50, 140, 28);
-//        panelSql.add(btnConnectSql);
-//
-//        btnDisconnectSql = new JButton("Cerrar sesión SQL");
-//        btnDisconnectSql.setBounds(160, 50, 160, 28);
-//        panelSql.add(btnDisconnectSql);
-//
-//        btnCreateSql = new JButton("Crear");
-//        btnCreateSql.setBounds(10, 90, 90, 28);
-//        panelSql.add(btnCreateSql);
-//
-//        btnEditSql = new JButton("Editar");
-//        btnEditSql.setBounds(110, 90, 90, 28);
-//        panelSql.add(btnEditSql);
-//
-//        btnDeleteSql = new JButton("Eliminar");
-//        btnDeleteSql.setBounds(210, 90, 90, 28);
-//        panelSql.add(btnDeleteSql);
-//
-//        btnRefreshSql = new JButton("Refrescar");
-//        btnRefreshSql.setBounds(310, 90, 110, 28);
-//        panelSql.add(btnRefreshSql);
-//
-//        modelSql = new DefaultTableModel(new Object[]{"DPI","Primer Nombre","Primer Apellido","Salario"}, 0) {
-//            @Override public boolean isCellEditable(int r, int c) { return false; }
-//        };
-//        tblSql = new JTable(modelSql);
-//        JScrollPane spSql = new JScrollPane(tblSql);
-//        spSql.setBounds(10, 130, 410, 400);
-//        panelSql.add(spSql);
-//
-//        // ----- Oracle -----
-//        lblStatusOra = new JLabel("No conectado");
-//        lblStatusOra.setBounds(10, 20, 200, 22);
-//        panelOra.add(lblStatusOra);
-//
-//        btnConnectOra = new JButton("Conectar Oracle");
-//        btnConnectOra.setBounds(10, 50, 150, 28);
-//        panelOra.add(btnConnectOra);
-//
-//        btnDisconnectOra = new JButton("Cerrar sesión Oracle");
-//        btnDisconnectOra.setBounds(170, 50, 170, 28);
-//        panelOra.add(btnDisconnectOra);
-//
-//        btnCreateOra = new JButton("Crear");
-//        btnCreateOra.setBounds(10, 90, 90, 28);
-//        panelOra.add(btnCreateOra);
-//
-//        btnEditOra = new JButton("Editar");
-//        btnEditOra.setBounds(110, 90, 90, 28);
-//        panelOra.add(btnEditOra);
-//
-//        btnDeleteOra = new JButton("Eliminar");
-//        btnDeleteOra.setBounds(210, 90, 90, 28);
-//        panelOra.add(btnDeleteOra);
-//
-//        btnRefreshOra = new JButton("Refrescar");
-//        btnRefreshOra.setBounds(310, 90, 110, 28);
-//        panelOra.add(btnRefreshOra);
-//
-//        modelOra = new DefaultTableModel(new Object[]{"DPI","Primer Nombre","Primer Apellido","Salario"}, 0) {
-//            @Override public boolean isCellEditable(int r, int c) { return false; }
-//        };
-//        tblOra = new JTable(modelOra);
-//        JScrollPane spOra = new JScrollPane(tblOra);
-//        spOra.setBounds(10, 130, 410, 400);
-//        panelOra.add(spOra);
-//
-//        panelCenter.add(panelSql);
-//        panelCenter.add(panelOra);
-//
-//        // Panel inferior: botón sync + log
-//        JPanel panelBottom = new JPanel(new BorderLayout(5, 5));
-//        btnSync = new JButton("Sincronizar");
-//        txtLog = new JTextArea(6, 80);
-//        txtLog.setEditable(false);
-//        JScrollPane spLog = new JScrollPane(txtLog);
-//        panelBottom.add(btnSync, BorderLayout.NORTH);
-//        panelBottom.add(spLog, BorderLayout.CENTER);
-//
-//        add(panelCenter, BorderLayout.CENTER);
-//        add(panelBottom, BorderLayout.SOUTH);
-//    }
-
     private void addButtonActions() {
         // Para verificar que llega el click
         btnConnectSql.addActionListener(e -> { System.out.println("CLICK Conectar SQL"); connectSql(); });
@@ -258,7 +158,18 @@ public class MainFrame extends javax.swing.JFrame {
                     List<Registro> list = get();
                     modelSql.setRowCount(0);
                     for (Registro r : list) {
-                        modelSql.addRow(new Object[]{ r.getDpi(), r.getPrimerNombre(), r.getPrimerApellido(), r.getSalarioBase() });
+                        modelSql.addRow(new Object[]{
+                            r.getDpi(),
+                            r.getPrimerNombre(),
+                            r.getSegundoNombre(),
+                            r.getPrimerApellido(),
+                            r.getSegundoApellido(),
+                            r.getDireccionDomiciliar(),
+                            r.getTelefonoCasa(),
+                            r.getTelefonoMovil(),
+                            r.getSalarioBase(),
+                            r.getBonificacion()
+                        });
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -277,7 +188,18 @@ public class MainFrame extends javax.swing.JFrame {
                     List<Registro> list = get();
                     modelOra.setRowCount(0);
                     for (Registro r : list) {
-                        modelOra.addRow(new Object[]{ r.getDpi(), r.getPrimerNombre(), r.getPrimerApellido(), r.getSalarioBase() });
+                        modelOra.addRow(new Object[]{
+                            r.getDpi(),
+                            r.getPrimerNombre(),
+                            r.getSegundoNombre(),
+                            r.getPrimerApellido(),
+                            r.getSegundoApellido(),
+                            r.getDireccionDomiciliar(),
+                            r.getTelefonoCasa(),
+                            r.getTelefonoMovil(),
+                            r.getSalarioBase(),
+                            r.getBonificacion()
+                        });
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -454,6 +376,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnRefreshOra = new javax.swing.JButton();
         lblStatusOra = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lblStatusSql = new javax.swing.JLabel();
         btnConnectSql = new javax.swing.JButton();
@@ -465,6 +388,7 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSql = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         btnSync = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtLog = new javax.swing.JTextArea();
@@ -478,20 +402,20 @@ public class MainFrame extends javax.swing.JFrame {
 
         tblOra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "DPI", "Primer Nombre", "Primer Apellido", "Salario"
+                "DPI", "Primer Nombre", "Segundo Nombre", "Primer Apellido", "Segundo Apellido", "Direccion", "Telefono Casa", "Telefono Movil", "Salario", "Bonificacion"
             }
         ));
         jScrollPane2.setViewportView(tblOra);
 
-        btnConnectOra.setText("Con Oracle");
+        btnConnectOra.setText("Conectar");
 
-        btnDisconnectOra.setText("Disc Oracle");
+        btnDisconnectOra.setText("Desconectar");
 
         btnCreateOra.setText("Crear");
 
@@ -508,6 +432,8 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ORACLE");
 
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Documents\\Progra\\ProyectoFinalDB\\ProyectoFinalDB\\src\\main\\java\\com\\umg\\proyectofinaldb\\images\\oracle (2).png")); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -515,44 +441,53 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(btnCreateOra)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnEditOra)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnDeleteOra)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnRefreshOra))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(btnConnectOra)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnDisconnectOra)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lblStatusOra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jLabel2))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnCreateOra)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEditOra)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDeleteOra)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRefreshOra))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnConnectOra)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDisconnectOra)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblStatusOra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addGap(51, 51, 51)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConnectOra)
-                    .addComponent(btnDisconnectOra)
-                    .addComponent(lblStatusOra))
+                    .addComponent(btnConnectOra, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDisconnectOra, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStatusOra, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreateOra)
-                    .addComponent(btnEditOra)
-                    .addComponent(btnDeleteOra)
-                    .addComponent(btnRefreshOra))
+                    .addComponent(btnCreateOra, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditOra, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeleteOra, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRefreshOra, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -563,9 +498,10 @@ public class MainFrame extends javax.swing.JFrame {
         lblStatusSql.setText("\"No conectado\"");
         lblStatusSql.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnConnectSql.setText("Con SQL");
+        btnConnectSql.setText("Conectar");
+        btnConnectSql.setBorder(null);
 
-        btnDisconnectSql.setText("Disc SQL");
+        btnDisconnectSql.setText("Desconectar");
 
         btnCreateSql.setText("Crear");
 
@@ -577,13 +513,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         tblSql.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "DPI", "Primer Nombre", "Primer Apellido", "Salario"
+                "DPI", "Primer Nombre", "Segundo Nombre", "Primer Apellido", "Segundo Apellido", "Direccion", "Telefono Casa", "Telefono Movil", "Salario", "Bonificacion"
             }
         ));
         jScrollPane1.setViewportView(tblSql);
@@ -592,6 +528,8 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("SQL SERVER");
 
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Documents\\Progra\\ProyectoFinalDB\\ProyectoFinalDB\\src\\main\\java\\com\\umg\\proyectofinaldb\\images\\sqlserver (2).png")); // NOI18N
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -599,45 +537,49 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(btnConnectSql)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnDisconnectSql)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lblStatusSql, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(btnCreateSql)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnEditSql)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnDeleteSql)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnRefreshSql))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(btnCreateSql)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEditSql)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDeleteSql)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRefreshSql))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnConnectSql, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(btnDisconnectSql)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblStatusSql, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConnectSql)
-                    .addComponent(btnDisconnectSql)
-                    .addComponent(lblStatusSql))
+                    .addComponent(btnConnectSql, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDisconnectSql, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStatusSql, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreateSql)
-                    .addComponent(btnEditSql)
-                    .addComponent(btnDeleteSql)
-                    .addComponent(btnRefreshSql))
+                    .addComponent(btnCreateSql, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditSql, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeleteSql, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRefreshSql, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -653,19 +595,16 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(482, 482, 482)
-                        .addComponent(btnSync, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(351, 351, 351)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(btnSync, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -673,11 +612,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSync, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSync, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -736,6 +675,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSync;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

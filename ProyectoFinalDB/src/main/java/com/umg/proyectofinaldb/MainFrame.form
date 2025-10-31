@@ -18,7 +18,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-28,0,0,4,-85"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-107,0,0,5,5"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
@@ -33,23 +33,18 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="60" max="32767" attributes="0"/>
-                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="482" max="-2" attributes="0"/>
-                          <Component id="btnSync" min="-2" pref="222" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnSync" min="-2" pref="224" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="351" max="-2" attributes="0"/>
-                          <Component id="jScrollPane3" min="-2" pref="488" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -60,11 +55,12 @@
                       <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
                       <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnSync" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" pref="100" max="-2" attributes="0"/>
-                  <EmptySpace pref="13" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnSync" pref="60" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -83,28 +79,32 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" pref="558" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="617" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="btnCreateOra" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnEditOra" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnDeleteOra" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnRefreshOra" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="btnConnectOra" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnDisconnectOra" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblStatusOra" max="32767" attributes="0"/>
-                                      </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="btnCreateOra" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnEditOra" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnDeleteOra" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnRefreshOra" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="btnConnectOra" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnDisconnectOra" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblStatusOra" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -116,20 +116,28 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" pref="51" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnConnectOra" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnDisconnectOra" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblStatusOra" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnConnectOra" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="btnDisconnectOra" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="lblStatusOra" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnCreateOra" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnEditOra" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnDeleteOra" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnRefreshOra" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCreateOra" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnEditOra" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnDeleteOra" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnRefreshOra" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="362" max="-2" attributes="0"/>
@@ -146,11 +154,17 @@
                 <Component class="javax.swing.JTable" name="tblOra">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
+                      <Table columnCount="10" rowCount="4">
                         <Column editable="true" title="DPI" type="java.lang.Object"/>
                         <Column editable="true" title="Primer Nombre" type="java.lang.Object"/>
+                        <Column editable="true" title="Segundo Nombre" type="java.lang.Object"/>
                         <Column editable="true" title="Primer Apellido" type="java.lang.Object"/>
+                        <Column editable="true" title="Segundo Apellido" type="java.lang.Object"/>
+                        <Column editable="true" title="Direccion" type="java.lang.Object"/>
+                        <Column editable="true" title="Telefono Casa" type="java.lang.Object"/>
+                        <Column editable="true" title="Telefono Movil" type="java.lang.Object"/>
                         <Column editable="true" title="Salario" type="java.lang.Object"/>
+                        <Column editable="true" title="Bonificacion" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
@@ -159,12 +173,12 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnConnectOra">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Con Oracle"/>
+                <Property name="text" type="java.lang.String" value="Conectar"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnDisconnectOra">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Disc Oracle"/>
+                <Property name="text" type="java.lang.String" value="Desconectar"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnCreateOra">
@@ -208,6 +222,13 @@
                 <Property name="text" type="java.lang.String" value="ORACLE"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\PC\Documents\Progra\ProyectoFinalDB\ProyectoFinalDB\src\main\java\com\umg\proyectofinaldb\images\oracle (2).png"/>
+                </Property>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel3">
@@ -223,31 +244,35 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" pref="553" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="630" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="btnConnectSql" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnDisconnectSql" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblStatusSql" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="btnCreateSql" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnEditSql" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnDeleteSql" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnRefreshSql" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabel4" min="-2" pref="77" max="-2" attributes="0"/>
+                                          <Component id="btnConnectSql" min="-2" pref="82" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="btnCreateSql" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnEditSql" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnDeleteSql" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnRefreshSql" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="btnDisconnectSql" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="lblStatusSql" min="-2" pref="124" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -257,20 +282,23 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" pref="56" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnConnectSql" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnDisconnectSql" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblStatusSql" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnConnectSql" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="btnDisconnectSql" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="lblStatusSql" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnCreateSql" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnEditSql" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnDeleteSql" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnRefreshSql" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCreateSql" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnEditSql" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnDeleteSql" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnRefreshSql" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="362" max="-2" attributes="0"/>
@@ -292,12 +320,15 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnConnectSql">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Con SQL"/>
+                <Property name="text" type="java.lang.String" value="Conectar"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnDisconnectSql">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Disc SQL"/>
+                <Property name="text" type="java.lang.String" value="Desconectar"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnCreateSql">
@@ -327,11 +358,17 @@
                 <Component class="javax.swing.JTable" name="tblSql">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
+                      <Table columnCount="10" rowCount="4">
                         <Column editable="true" title="DPI" type="java.lang.Object"/>
                         <Column editable="true" title="Primer Nombre" type="java.lang.Object"/>
+                        <Column editable="true" title="Segundo Nombre" type="java.lang.Object"/>
                         <Column editable="true" title="Primer Apellido" type="java.lang.Object"/>
+                        <Column editable="true" title="Segundo Apellido" type="java.lang.Object"/>
+                        <Column editable="true" title="Direccion" type="java.lang.Object"/>
+                        <Column editable="true" title="Telefono Casa" type="java.lang.Object"/>
+                        <Column editable="true" title="Telefono Movil" type="java.lang.Object"/>
                         <Column editable="true" title="Salario" type="java.lang.Object"/>
+                        <Column editable="true" title="Bonificacion" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
@@ -347,6 +384,13 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="SQL SERVER"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel4">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\PC\Documents\Progra\ProyectoFinalDB\ProyectoFinalDB\src\main\java\com\umg\proyectofinaldb\images\sqlserver (2).png"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
